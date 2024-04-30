@@ -14,3 +14,50 @@
 .home h2 {
 	word-break: keep-all;
 }
+
+.create-room-button {
+	border: none;
+	padding: 10px 30px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	color: cornflowerblue;
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.section-join-chat {
+	padding-top: 30px;
+}
+
+.section-join-chat h2, 
+.section-join-chat h3, 
+.section-join-chat h4 {
+	margin: 0; 
+}
+
+
+.room-list {
+	margin-top: 10px;
+}
+
+.room-length {
+	font-size: 20px;
+}
+
+.chat-room-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.chat-room-list button{
+	background: white;
+	color: cornflowerblue;
+	padding: 7px;
+	border: none;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+}
