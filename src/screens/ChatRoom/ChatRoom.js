@@ -45,6 +45,17 @@ const ChatRoom = () => {
     };
   }, [addSystemMessage]);
 
+  // 메시지 전송/수신시: UI 업데이트
+  useEffect(() => {
+    socket.on("new_message", (msg) => {
+      addChatMessage(msg);
+    });
+
+    return () => {
+      socket.off("new_message");
+    };
+  }, [addChatMessage]);
+
   useEffect(() => {
     socket.on("error", (error) => {
       errorHandler(error);
@@ -54,6 +65,28 @@ const ChatRoom = () => {
       socket.off("error", errorHandler);
     };
   }, [errorHandler]);
+
+  // 메시지 전송
+  const handleMessageSubmit = (event) => {
+    event.preventDefault();
+
+    const message_value = messageInputRef.current.value;
+
+    if (message_value.trim().length === 0) {
+      return;
+    }
+
+    const message = {
+      roomName: params.roomName,
+      senderId: socket.id,
+      message: message_value,
+    };
+
+    socket.emit("new_message", message);
+
+    messageInputRef.current.value = "";
+    messageInputRef.current.focus();
+  };
 
   return (
     <div className="chat-room">
@@ -78,7 +111,17 @@ const ChatRoom = () => {
             );
           } else {
             return (
-              <div key={index} className="chat-message-bubble">
+              <div
+                key={index}
+                className={[
+                  "message-bubble",
+                  `${
+                    message.isMe
+                      ? "chat-message-from-self-bubble"
+                      : "chat-message-from-other-bubble"
+                  }`,
+                ].join(" ")}
+              >
                 <span className="sender-name">{message.userName}</span>
                 <div className="message-wrap">
                   <span className="message-time">{message.time}</span>
@@ -91,7 +134,7 @@ const ChatRoom = () => {
       </div>
       <InputField
         name="messageInput"
-        onSubmit={() => {}}
+        onSubmit={handleMessageSubmit}
         inputRef={messageInputRef}
       />
     </div>

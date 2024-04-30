@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import socket from "../socket";
 
 export const useMessage = () => {
   const [messageList, setMessageList] = useState([]);
@@ -30,6 +31,12 @@ export const useMessage = () => {
       type: "chat",
       userName: msg.userName,
       message: msg.message,
+      isMe: socket.id === msg.socketId,
+      timestemp: new Date().getTime(),
+      time: new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
     };
 
     setMessageList((pre) => [...pre, new_msg]);
