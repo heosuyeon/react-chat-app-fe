@@ -1,12 +1,14 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { useParams, useLocation } from "react-router-dom";
 
 import { useMessage } from "../../hooks/message-hook";
 import { useError } from "../../hooks/error-hook";
+import SideDrawer from "../../components/SideDrawer/SideDrawer";
 import InputField from "../../components/InputField/InputField";
 import IconButton from "../../components/Button/IconButton";
 import arrowLeftIcon from "../../assets/images/i_arrow_left.svg";
 import peopleIcon from "../../assets/images/i_people.svg";
+import closeIcon from "../../assets/images/i_close.svg";
 import socket from "../../socket";
 import "./ChatRoom.css";
 
@@ -14,6 +16,8 @@ const ChatRoom = () => {
   const params = useParams();
   const location = useLocation();
   const messageInputRef = useRef(null);
+  const [userList, setUserList] = useState([]);
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const { addSystemMessage, addChatMessage, messageList } = useMessage();
   const { errorHandler } = useError();
 
@@ -22,28 +26,42 @@ const ChatRoom = () => {
     if (roomInfo) socket.emit("entered_room", roomInfo);
   }, [location?.state?.roomInfo]);
 
+  // 채팅방 유저 입/퇴장시 유저 업데이트
+  const updateUsers = useCallback(async (type, user) => {
+    if (type === "welcome") {
+      setUserList(user);
+      return;
+    }
+    if (type === "bye") {
+      setUserList((pre) => pre.filter((item) => item.nickname !== user));
+      return;
+    }
+  }, []);
+
   // 유저 채팅방 입장시: UI 업데이트
   useEffect(() => {
     socket.on("welcome", async (user) => {
       // console.log("welcome user -------------->", user);
       await addSystemMessage("welcome", user.nickname);
+      await updateUsers("welcome", user.users);
     });
 
     return () => {
       socket.off("welcome");
     };
-  }, [addSystemMessage]);
+  }, [addSystemMessage, updateUsers]);
 
   // 유저 채팅방 퇴장시: UI 업데이트
   useEffect(() => {
     socket.on("bye", (userName) => {
       addSystemMessage("bye", userName);
+      updateUsers("bye", userName);
     });
 
     return () => {
       socket.off("bye");
     };
-  }, [addSystemMessage]);
+  }, [addSystemMessage, updateUsers]);
 
   // 메시지 전송/수신시: UI 업데이트
   useEffect(() => {
@@ -88,6 +106,16 @@ const ChatRoom = () => {
     messageInputRef.current.focus();
   };
 
+  const openDrawerHandler = () => {
+    setDrawerIsOpen(true);
+  };
+  const closeDrawerHandler = () => {
+    setDrawerIsOpen(false);
+  };
+
+  console.log("messageList -------->", messageList);
+  console.log("userList -------->", userList);
+
   return (
     <div className="chat-room">
       <div className="room-head">
@@ -95,9 +123,14 @@ const ChatRoom = () => {
           go back
         </IconButton>
         <h2 className="room-name">
+          <span>({userList.length})</span>
           <span>{params.roomName}</span>
         </h2>
-        <IconButton onClick={() => {}} iconSrc={peopleIcon} alt="participants">
+        <IconButton
+          onClick={openDrawerHandler}
+          iconSrc={peopleIcon}
+          alt="participants"
+        >
           participants
         </IconButton>
       </div>
@@ -137,6 +170,32 @@ const ChatRoom = () => {
         onSubmit={handleMessageSubmit}
         inputRef={messageInputRef}
       />
+
+      <SideDrawer show={drawerIsOpen}>
+        <div className="drawer-header">
+          <span>채팅방 유저 목록</span>
+
+          <IconButton
+            onClick={closeDrawerHandler}
+            iconSrc={closeIcon}
+            alt="close drawer"
+          >
+            close
+          </IconButton>
+        </div>
+        <ul>
+          {userList.map((user) => {
+            return (
+              <li key={user.id} className="drawer-username">
+                {user.id === socket.id && (
+                  <span className="drawer-label-me">Me</span>
+                )}
+                {user.nickname}
+              </li>
+            );
+          })}
+        </ul>
+      </SideDrawer>
     </div>
   );
 };

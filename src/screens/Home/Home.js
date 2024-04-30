@@ -104,7 +104,9 @@ const Home = () => {
             {roomList.map((room) => {
               return (
                 <li key={room.roomName} onClick={() => showModalHandler(room)}>
-                  <button>{room.roomName} (0/3)</button>
+                  <button>
+                    {room.roomName} ({room.userCount}/3)
+                  </button>
                 </li>
               );
             })}
