@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 import { useMessage } from "../../hooks/message-hook";
 import { useError } from "../../hooks/error-hook";
@@ -15,6 +15,7 @@ import "./ChatRoom.css";
 const ChatRoom = () => {
   const params = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const messageInputRef = useRef(null);
   const [userList, setUserList] = useState([]);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -62,6 +63,27 @@ const ChatRoom = () => {
       socket.off("bye");
     };
   }, [addSystemMessage, updateUsers]);
+
+  // 채팅방 퇴장
+  const leaveRoomHandler = useCallback(() => {
+    socket.emit("leave_room", params.roomName);
+    navigate("/");
+  }, [navigate, params.roomName]);
+
+  // 브라우저 뒤로가기 버튼 클릭시 채팅방 나가기
+  useEffect(() => {
+    const clickedBackspaceToLeaveRoom = (event) => {
+      if (event.type === "popstate") {
+        leaveRoomHandler();
+      }
+    };
+    window.addEventListener("popstate", (event) => {
+      clickedBackspaceToLeaveRoom(event);
+    });
+    return () => {
+      window.removeEventListener("popstate", clickedBackspaceToLeaveRoom);
+    };
+  }, [leaveRoomHandler]);
 
   // 메시지 전송/수신시: UI 업데이트
   useEffect(() => {
@@ -119,7 +141,11 @@ const ChatRoom = () => {
   return (
     <div className="chat-room">
       <div className="room-head">
-        <IconButton onClick={() => {}} iconSrc={arrowLeftIcon} alt="go back">
+        <IconButton
+          onClick={leaveRoomHandler}
+          iconSrc={arrowLeftIcon}
+          alt="go back"
+        >
           go back
         </IconButton>
         <h2 className="room-name">
