@@ -1,0 +1,29 @@
+.chat-room {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.room-head {
+  margin: 0;
+  background-color: cornflowerblue;
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.room-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+}
+
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+}

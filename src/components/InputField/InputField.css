@@ -1,0 +1,19 @@
+.inputfield-form {
+  display: flex;
+  padding: 10px;
+  gap: 5px;
+}
+.inputfield-input {
+  flex: 1;
+  border: none;
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 0 0 0 10px;
+}
+.inputfield-form-button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: cornflowerblue;
+  color: #fff;
+}
