@@ -1,0 +1,16 @@
+.home {
+	min-height: 100vh;
+	text-align: center;
+	background-image: linear-gradient(to left top, #2c73d2, #3e8de0, #58a7eb, #78c0f5, #9bd8fe);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+	padding: 0 20px;
+}
+
+.home h2 {
+	word-break: keep-all;
+}
