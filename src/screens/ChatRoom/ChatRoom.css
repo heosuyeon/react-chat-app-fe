@@ -27,3 +27,15 @@
   flex: 1;
   overflow-y: auto;
 }
+
+.system-message-bubble {
+  display: flex;
+  justify-content: center;
+}
+
+.system-message {
+  background-color: #ddd;
+  border-radius: 13px;
+  color: #333;
+  padding: 3px 20px;
+}

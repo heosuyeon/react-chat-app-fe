@@ -10,6 +10,7 @@ import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [roomList, setRoomList] = useState([]);
   const [clickedRoomName, setClickedRoomName] = useState("");
   const { errorHandler } = useError();
 
@@ -17,6 +18,15 @@ const Home = () => {
     createRoomModalRef: useRef(null),
     enterRoomModalRef: useRef(null),
   };
+
+  useEffect(() => {
+    socket.on("room_change", (room) => {
+      setRoomList(room);
+    });
+    return () => {
+      socket.off("room_change");
+    };
+  }, [roomList]);
 
   useEffect(() => {
     socket.on("error", (error) => {
@@ -29,12 +39,12 @@ const Home = () => {
 
   const showModalHandler = (props) => {
     // 방 생성 모달
-    if (!props) {
+    if (!props.roomName) {
       modalRefs.createRoomModalRef.current.showModal();
       return;
     }
     // 방 입장 모달
-    setClickedRoomName(props);
+    setClickedRoomName(props.roomName);
     modalRefs.enterRoomModalRef.current.showModal();
     return;
   };
@@ -78,24 +88,29 @@ const Home = () => {
 
       <h2>Socket.io를 이용한 채팅 웹앱</h2>
 
-      <button className="create-room-button" onClick={() => showModalHandler()}>
+      <button className="create-room-button" onClick={showModalHandler}>
         새로운 채팅방 만들기
       </button>
 
-      <section className="section-join-chat">
-        <h3>아래 채팅방에 참여해보세요🙋🏻‍♀️</h3>
-        <h4 className="room-list">
-          채팅방 목록 <span className="room-length">(0/3)</span>
-        </h4>
+      {roomList.length > 0 && (
+        <section className="section-join-chat">
+          <h3>아래 채팅방에 참여해보세요🙋🏻‍♀️</h3>
+          <h4 className="room-list">
+            채팅방 목록
+            <span className="room-length">({roomList.length}/3)</span>
+          </h4>
 
-        <ul className="chat-room-list">
-          <li>
-            <button onClick={() => showModalHandler("roomName")}>
-              채팅방 1 (0/3)
-            </button>
-          </li>
-        </ul>
-      </section>
+          <ul className="chat-room-list">
+            {roomList.map((room) => {
+              return (
+                <li key={room.roomName} onClick={() => showModalHandler(room)}>
+                  <button>{room.roomName} (0/3)</button>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
 
       <CreateRoomModal
         modalRef={modalRefs.createRoomModalRef}
