@@ -1,0 +1,61 @@
+dialog {
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal_header {
+  padding: 15px;
+  background: cornflowerblue;
+  color: white;
+}
+
+.modal_header h2 {
+  margin: 0;
+}
+  
+.modal_content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal_footer {
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.form-input {
+  margin-top: 5px;
+}
+.form-input input {
+  padding: 8px 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+.modal button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.confirm-button {
+  background-color: cornflowerblue;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #ddd;
+  color: #000;
+}
