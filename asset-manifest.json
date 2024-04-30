@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-chat-app-fe/static/css/main.b8b2cfbf.css",
-    "main.js": "/react-chat-app-fe/static/js/main.886c32d1.js",
+    "main.js": "/react-chat-app-fe/static/js/main.d3873ea0.js",
     "static/media/chat_bubble.svg": "/react-chat-app-fe/static/media/chat_bubble.5d18b1160d3d3f519171a1d0c951708c.svg",
     "index.html": "/react-chat-app-fe/index.html",
     "static/media/i_arrow_left.svg": "/react-chat-app-fe/static/media/i_arrow_left.00d3c187bca419a1d5b420933c8246b2.svg",
     "static/media/i_close.svg": "/react-chat-app-fe/static/media/i_close.ec817f7111617d48e41e5dbcbc2cd7f2.svg",
     "static/media/i_people.svg": "/react-chat-app-fe/static/media/i_people.1ff143a574d46f57b43e08035b4da41b.svg",
     "main.b8b2cfbf.css.map": "/react-chat-app-fe/static/css/main.b8b2cfbf.css.map",
-    "main.886c32d1.js.map": "/react-chat-app-fe/static/js/main.886c32d1.js.map"
+    "main.d3873ea0.js.map": "/react-chat-app-fe/static/js/main.d3873ea0.js.map"
   },
   "entrypoints": [
     "static/css/main.b8b2cfbf.css",
-    "static/js/main.886c32d1.js"
+    "static/js/main.d3873ea0.js"
   ]
 }
