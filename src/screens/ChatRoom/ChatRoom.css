@@ -53,6 +53,31 @@
   overflow-y: auto;
 }
 
+.chat-room-greeting {
+  padding: 10px 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.chat-room-greeting figcaption {
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+}
+
+.chat-room-greeting figcaption p {
+  margin: 10px 0;
+}
+
+.chat-room-greeting span {
+  font-weight: bold;
+  color: cornflowerblue;
+}
+
 .message-bubble {
   margin-top: 5px;
 }

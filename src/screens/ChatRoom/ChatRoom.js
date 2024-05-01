@@ -10,6 +10,7 @@ import IconButton from "../../components/Button/IconButton";
 import arrowLeftIcon from "../../assets/images/i_arrow_left.svg";
 import peopleIcon from "../../assets/images/i_people.svg";
 import closeIcon from "../../assets/images/i_close.svg";
+import chatBubbleCircleIcon from "../../assets/images/chat_bubble_circle.svg";
 import socket from "../../socket";
 import "./ChatRoom.css";
 
@@ -169,6 +170,20 @@ const ChatRoom = () => {
         </IconButton>
       </div>
       <div className="chat-list">
+        <figure className="chat-room-greeting">
+          <img
+            src={chatBubbleCircleIcon}
+            width={110}
+            height={110}
+            alt="chat bubble icon"
+          />
+          <figcaption>
+            <p>
+              🙋🏻‍♀️ <span>{params.roomName}</span> 채팅방 입니다
+            </p>
+            <p>뒤로가기시 채팅이 종료됩니다</p>
+          </figcaption>
+        </figure>
         {messageList.map((message, index) => {
           if (message.type === "system") {
             return (
