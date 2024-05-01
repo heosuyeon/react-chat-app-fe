@@ -2,6 +2,7 @@
   "name": "react-chat-app-fe",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/react-chat-app-fe",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -10,7 +11,12 @@
     "react-transition-group": "^4.4.5",
     "socket.io-client": "^4.7.5"
   },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },

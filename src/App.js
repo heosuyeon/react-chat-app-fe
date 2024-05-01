@@ -6,20 +6,23 @@ import ChatRoom from "./screens/ChatRoom/ChatRoom";
 import ErrorPage from "./screens/ErrorPage/ErrorPage";
 import "./App.css";
 
-// import socket from "./socket";
-
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/chat_room/:roomName",
+      element: <ChatRoom />,
+      errorElement: <ErrorPage />,
+    },
+  ],
   {
-    path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/chat_room/:roomName",
-    element: <ChatRoom />,
-    errorElement: <ErrorPage />,
-  },
-]);
+    basename: process.env.PUBLIC_URL,
+  }
+);
 
 function App() {
   return (
