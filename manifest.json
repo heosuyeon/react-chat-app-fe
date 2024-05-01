@@ -1,7 +1,7 @@
 {
   "name": "React Chat App",
   "short_name": "React Chat App",
-  "description": "React Chat app using Socket.io",
+  "description": "Chat app using WebSockets",
   "icons": [
     {
       "src": "favicon/favicon.ico",
