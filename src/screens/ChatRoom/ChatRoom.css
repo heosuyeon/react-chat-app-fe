@@ -127,3 +127,7 @@
   word-wrap: break-word;
   max-width: 65%;
 }
+
+#scroll-bottom {
+  height: 5px;
+}

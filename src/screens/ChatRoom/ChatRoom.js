@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from "react";
+import { flushSync } from "react-dom";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 import { useMessage } from "../../hooks/message-hook";
@@ -18,6 +19,7 @@ const ChatRoom = () => {
   const navigate = useNavigate();
   const messageInputRef = useRef(null);
   const hiddenInputRef = useRef(null);
+  const scrollBottomRef = useRef(null);
   const [userList, setUserList] = useState([]);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const { addSystemMessage, addChatMessage, messageList } = useMessage();
@@ -86,10 +88,14 @@ const ChatRoom = () => {
     };
   }, [leaveRoomHandler]);
 
-  // 메시지 전송/수신시: UI 업데이트
+  // 메시지 전송/수신시: UI 업데이트, 스크롤 내리기
   useEffect(() => {
     socket.on("new_message", (msg) => {
-      addChatMessage(msg);
+      flushSync(() => {
+        addChatMessage(msg);
+      });
+
+      if (scrollBottomRef.current) scrollBottomRef.current.scrollIntoView();
     });
 
     return () => {
@@ -192,6 +198,7 @@ const ChatRoom = () => {
             );
           }
         })}
+        <div id="scroll-bottom" ref={scrollBottomRef}></div>
       </div>
       <InputField
         name="messageInput"
