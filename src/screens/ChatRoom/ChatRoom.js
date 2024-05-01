@@ -17,6 +17,7 @@ const ChatRoom = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const messageInputRef = useRef(null);
+  const hiddenInputRef = useRef(null);
   const [userList, setUserList] = useState([]);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const { addSystemMessage, addChatMessage, messageList } = useMessage();
@@ -125,6 +126,7 @@ const ChatRoom = () => {
     socket.emit("new_message", message);
 
     messageInputRef.current.value = "";
+    hiddenInputRef.current.focus();
     messageInputRef.current.focus();
   };
 
@@ -195,6 +197,7 @@ const ChatRoom = () => {
         name="messageInput"
         onSubmit={handleMessageSubmit}
         inputRef={messageInputRef}
+        hiddenInputRef={hiddenInputRef}
       />
 
       <SideDrawer show={drawerIsOpen}>

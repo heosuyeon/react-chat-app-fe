@@ -1,6 +1,6 @@
 import "./InputField.css";
 
-const InputField = ({ onSubmit, name, inputRef }) => {
+const InputField = ({ onSubmit, name, inputRef, hiddenInputRef }) => {
   return (
     <form onSubmit={onSubmit} className="inputfield-form">
       <input
@@ -9,6 +9,11 @@ const InputField = ({ onSubmit, name, inputRef }) => {
         ref={inputRef}
         className="inputfield-input"
         autoFocus={true}
+      />
+      <input
+        name="hiddenInput"
+        ref={hiddenInputRef}
+        className="inputfield-hidden-input"
       />
       <button className="inputfield-form-button">전송</button>
     </form>
