@@ -225,6 +225,7 @@ const ChatRoom = () => {
           })}
         </ul>
       </SideDrawer>
+      <div id="make-scrollable"></div>
     </div>
   );
 };
