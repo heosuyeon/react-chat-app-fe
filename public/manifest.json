@@ -37,11 +37,12 @@
       "src": "favicon/android-icon-192x192.png",
       "sizes": "192x192",
       "type": "image\/png",
-      "density": "4.0"
+      "density": "4.0",
+      "purpose": "any"
     },
     {
-      "src": "maskable-icon-295x295.png",
-      "sizes": "295x295",
+      "src": "favicon/maskable_icon_x192.png",
+      "sizes": "192x192",
       "type": "image\/png",
       "purpose": "maskable"
     },
