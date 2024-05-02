@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# react-chat-app-fe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+실시간 채팅 웹 애플리케이션 입니다.\
+이 레포지토리는 프로젝트의 front(client) 부분입니다.
 
-## Available Scripts
+<p style="display=flex">
+  <img src="https://img.shields.io/badge/node.js%20-v18.3.0%20-5FA04E?style=flat-square" />
+  <img src="https://img.shields.io/badge/react%20-v18.3.1%20-61DAFB?style=flat-square" />
+  <img src="https://img.shields.io/badge/socket.io%20-v4.7.5%20-010101?style=flat-square" />
+</p>
 
-In the project directory, you can run:
+![react-chat-app create room](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/c8edb264-17d4-4c24-b9f1-b1decfe5e893)
+- 채팅방 생성시
 
-### `npm start`
+![react-chat-app enter room](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/18f37d92-a265-437d-b548-b31135dd4f6d)
+- 채팅방 입장시
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 개발 기간
+24.3.29 ~ 24.5.3
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 기능
+- 채팅방 이름과 닉네임을 입력 후 채팅방을 만들 수 있습니다. (최대 방 생성 개수 3개)
+- 기존 채팅방이 있다면 닉네임을 입력하고 입장할 수 있습니다. (최대 입장 인원 3명)
+- 같은 방 안에서 중복 닉네임을 사용할 수 없습니다. 
+- 채팅방에 참여 중인 유저 목록과 인원수를 확인할 수 있습니다.
+- [PWA(progressive Web Apps)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)  적용: 앱을 설치하여 이용할 수 있습니다.
+  - 모바일 설치 화면\
+![모바일 설치 화면](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/4ece9b23-4ef2-4f8c-a43c-063932d41e51)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - 데스크톱 설치 화면\
+![데스크톱 설치 화면](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/efbe72d7-7563-4302-a7b1-5f7c82208eff)
