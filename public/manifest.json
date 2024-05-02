@@ -40,6 +40,12 @@
       "density": "4.0"
     },
     {
+      "src": "maskable-icon-295x295.png",
+      "sizes": "295x295",
+      "type": "image\/png",
+      "purpose": "maskable"
+    },
+    {
       "src": "favicon/android-icon-512x512.png",
       "sizes": "512x512",
       "type": "image\/png",
@@ -51,6 +57,10 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
+  "orientation": "portrait",
+  "launch_handler": {
+    "client_mode": "auto"
+  },
   "screenshots": [
     {
       "src": "screenshot-wide-home.png",
