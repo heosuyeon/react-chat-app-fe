@@ -55,7 +55,7 @@
   "start_url": ".",
   "lang": "ko-KR",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#6495ED",
   "background_color": "#ffffff",
   "orientation": "portrait",
   "launch_handler": {
