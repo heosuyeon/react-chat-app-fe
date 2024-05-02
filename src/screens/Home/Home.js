@@ -58,6 +58,13 @@ const Home = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
+    if (!socket.connected) {
+      alert(
+        "서버가 정지되었습니다. 현재 클라우드타입 무료 요금제 사용중이며 하루에 한 번 서버가 정지됩니다. 기능 확인은 Github readme를 확인해 주세요."
+      );
+      return;
+    }
+
     const formData = new FormData(event.target);
     const roomName = formData.get("roomName")
       ? formData.get("roomName")
