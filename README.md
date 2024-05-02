@@ -9,16 +9,19 @@
   <img src="https://img.shields.io/badge/socket.io%20-v4.7.5%20-010101?style=flat-square" />
 </p>
 
-![react-chat-app create room](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/c8edb264-17d4-4c24-b9f1-b1decfe5e893)
-- 채팅방 생성시
-
-![react-chat-app enter room](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/18f37d92-a265-437d-b548-b31135dd4f6d)
-- 채팅방 입장시
-
 ## 개발 기간
 24.3.29 ~ 24.5.3
 
+## 배포
+[배포 링크](https://heosuyeon.github.io/react-chat-app-fe/)
+
 ## 기능
+#### 채팅방 생성시
+![react-chat-app create room](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/c8edb264-17d4-4c24-b9f1-b1decfe5e893)
+
+#### 채팅방 입장시
+![react-chat-app enter room](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/18f37d92-a265-437d-b548-b31135dd4f6d)
+
 - 채팅방 이름과 닉네임을 입력 후 채팅방을 만들 수 있습니다. (최대 방 생성 개수 3개)
 - 기존 채팅방이 있다면 닉네임을 입력하고 입장할 수 있습니다. (최대 입장 인원 3명)
 - 같은 방 안에서 중복 닉네임을 사용할 수 없습니다. 
