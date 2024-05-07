@@ -7,8 +7,9 @@
   <img src="https://img.shields.io/badge/node.js%20-v18.3.0%20-5FA04E?style=flat-square" />
   <img src="https://img.shields.io/badge/react%20-v18.3.1%20-61DAFB?style=flat-square" />
   <img src="https://img.shields.io/badge/socket.io%20-v4.7.5%20-010101?style=flat-square" />
+  <img src="https://img.shields.io/badge/PWA-5A0FC8?style=flat-square&logo=pwa" />
 </p>
-
+    
 ## 개발 기간
 24.3.29 ~ 24.5.3
 
