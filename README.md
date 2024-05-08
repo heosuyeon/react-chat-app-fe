@@ -27,7 +27,7 @@
 - 기존 채팅방이 있다면 닉네임을 입력하고 입장할 수 있습니다. (최대 입장 인원 3명)
 - 같은 방 안에서 중복 닉네임을 사용할 수 없습니다. 
 - 채팅방에 참여 중인 유저 목록과 인원수를 확인할 수 있습니다.
-- [PWA(progressive Web Apps)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)  적용: 앱을 설치하여 이용할 수 있습니다.
+- [PWA(Progressive Web Apps)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)  적용: 앱을 설치하여 이용할 수 있습니다.
   - 모바일 설치 화면\
 ![모바일 설치 화면](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/4ece9b23-4ef2-4f8c-a43c-063932d41e51)
 
