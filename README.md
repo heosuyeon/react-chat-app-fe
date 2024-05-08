@@ -33,3 +33,19 @@
 
   - 데스크톱 설치 화면\
 ![데스크톱 설치 화면](https://github.com/heosuyeon/react-chat-app-fe/assets/91523662/efbe72d7-7563-4302-a7b1-5f7c82208eff)
+
+## 실행 방법
+1. 레포지토리 클론
+```
+git clone https://github.com/heosuyeon/react-chat-app-fe.git
+cd react-chat-app-fe
+```
+2. 패키지 설치
+```
+npm install
+```
+ 
+4. 개발모드 실행
+```
+npm start
+```
